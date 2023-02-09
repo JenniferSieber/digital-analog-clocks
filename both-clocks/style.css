@@ -1,0 +1,135 @@
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --lightest-bg-color: hsl(176, 40%, 92%);
+  --medium-lt-color: hsl(175, 100%, 50%);
+  --medium-dk-color: hsl(198, 93%, 53%);
+  --medium-dkr-color: hsl(200, 61%, 30%);
+  --darkest-bg-color: hsl(201, 62%, 8%);
+  --shadow-color: hsla(200, 61%, 30%, .2);
+  --font-light: hsl(360, 100%, 100%);
+  --font-dark: hsl(201, 62%, 8%);
+}
+
+body {
+  background-color: var(--darkest-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  color: var(--medium-dk-color);
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+ /* ---digital clock styles--- */
+.digital {
+  background:  linear-gradient(to right,var(--medium-dkr-color), var(--medium-lt-color));
+  color: var(--font-light);
+  margin-bottom: 20px;
+  padding: 10px 0;
+  min-width: 280px;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 5px  0px 5px var(--shadow-color);  
+}
+
+/* ---analog clock styles--- */
+.analog {
+  background:  linear-gradient(to right,var(--medium-dkr-color), var(--medium-lt-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px  0px 5px var(--shadow-color);
+}
+
+.analog-clock {
+  width: 300px;
+  height: 300px;
+  background-color: var(--lightest-bg-color);
+  color: var(--font-dark);
+  border-radius: 50%;
+  border: 2px solid var(--medium-dk-color);
+  position: relative;
+}
+
+.analog-clock .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.analog-clock .number1 { --rotation: 30deg; }
+.analog-clock .number2 { --rotation: 60deg; }
+.analog-clock .number3 { --rotation: 90deg; }
+.analog-clock .number4 { --rotation: 120deg; }
+.analog-clock .number5 { --rotation: 150deg; }
+.analog-clock .number6 { --rotation: 180deg; }
+.analog-clock .number7 { --rotation: 210deg; }
+.analog-clock .number8 { --rotation: 240deg; }
+.analog-clock .number9 { --rotation: 270deg; }
+.analog-clock .number10 { --rotation: 300deg; }
+.analog-clock .number11 { --rotation: 330deg; }
+
+.analog-clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid var(--font-light);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: 9;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.analog-clock::after {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--darkest-bg-color); 
+  border-radius: 50%;
+}
+
+.analog-clock .hand.second {
+  width: 5px;
+  height: 42%;
+  background-color:var(--medium-dkr-color);
+}
+
+.analog-clock .hand.hour {
+  width: 10px;
+  height: 30%;
+  background-color: var(--darkest-bg-color); 
+}
+
+.analog-clock .hand.minute {
+  width: 7px;
+  height: 38%;
+  background-color: var(--darkest-bg-color); 
+}
