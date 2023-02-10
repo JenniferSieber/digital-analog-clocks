@@ -61,6 +61,6 @@ function analogDisplay() {
   element.style.setProperty('--rotation', rotationRatio * 360)
  }
 
+displayDate()
 digitalDisplay()
 analogDisplay() 
-displayDate()
