@@ -2,6 +2,22 @@
 setInterval(digitalDisplay, 1000)
 setInterval(analogDisplay, 1000)
 
+//display todays date
+function displayDate() {
+  var dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+  var monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+  let currentDate = new Date()
+  let dayOfWeek = currentDate.getDay()
+  let numberOfDay = currentDate.getDate()
+  let month = currentDate.getMonth()
+  let year = currentDate.getFullYear()
+
+  document.querySelector('.date-display').innerHTML = 
+  dayList[dayOfWeek] + ', ' + monthList[month] + '  ' + numberOfDay + ', ' + year
+}
+
 //digital clock 
 function digitalDisplay() {
   let currentDate = new Date()
@@ -44,22 +60,6 @@ function analogDisplay() {
  function setRotation(element, rotationRatio) {
   element.style.setProperty('--rotation', rotationRatio * 360)
  }
-
- //display todays date
-function displayDate() {
-  var dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-  var monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-  let currentDate = new Date()
-  let dayOfWeek = currentDate.getDay()
-  let numberOfDay = currentDate.getDate()
-  let month = currentDate.getMonth()
-  let year = currentDate.getFullYear()
-
-  document.querySelector('.date-display').innerHTML = 
-  dayList[dayOfWeek] + ', ' + monthList[month] + '  ' + numberOfDay + ', ' + year
-}
 
 digitalDisplay()
 analogDisplay() 
